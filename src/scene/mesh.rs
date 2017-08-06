@@ -19,7 +19,7 @@ define_type_and_iterator_indirect! {
     struct BoneIter
 }
 
-define_type_and_iterator_indirect! {
+define_type_and_iterator! {
     /// Vertex weight type
     struct VertexWeight(&AiVertexWeight)
     /// Vertex weight iterator type.
@@ -141,7 +141,7 @@ impl<'a> Bone<'a> {
     }
 
     pub fn weight_iter(&self) -> VertexWeightIter {
-        VertexWeightIter::new(self.weights as *const *const AiVertexWeight,
+        VertexWeightIter::new(self.weights as *const AiVertexWeight,
                       self.num_weights as usize)
     }
 
